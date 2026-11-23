@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Earnify — Earn More, Achieve More</title>
+<meta name="description" content="Earnify — বিশ্বস্ত আর্নিং অ্যাপ। দৈনিক টাস্ক সম্পন্ন করে ইনকাম করুন এবং সরাসরি বিকাশ/নগদে উত্তোলন করুন।"/>
+<meta name="theme-color" content="#070b14"/>
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/0jtN65nH/PLPL-Osman20260426-224127.jpg"/>
+<link rel="apple-touch-icon" href="https://i.ibb.co/0jtN65nH/PLPL-Osman20260426-224127.jpg"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Earnify — Earn More, Achieve More"/>
+<meta property="og:description" content="বিশ্বস্ত আর্নিং অ্যাপ। দৈনিক টাস্ক সম্পন্ন করে ইনকাম করুন এবং সরাসরি উত্তোলন করুন।"/>
+<meta property="og:image" content="https://i.ibb.co/0jtN65nH/PLPL-Osman20260426-224127.jpg"/>
+<meta name="twitter:card" content="summary"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://i.ibb.co"/>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+Da+2:wght@500;600;700;800&amp;family=Hind+Siliguri:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#070b14;
+    --bg-alt:#0d1424;
+    --bg-card:#111a2e;
+    --green-1:#7ED321;
+    --green-2:#2E9B4F;
+    --teal:#1C7FA0;
+    --gold:#FFB020;
+    --gold-2:#FF8A00;
+    --white:#F5F7FA;
+    --muted:#8B96AC;
+    --line:rgba(255,255,255,0.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--white);
+    font-family:'Hind Siliguri','Segoe UI',sans-serif;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.display{font-family:'Baloo Da 2','Hind Siliguri',sans-serif;}
+  a{text-decoration:none;color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px;}
+  ::selection{background:var(--gold);color:#111;}
+
+  /* background growth trail */
+  .trail-svg{
+    position:fixed;top:0;left:0;width:100%;height:100%;
+    pointer-events:none;z-index:0;opacity:0.5;
+  }
+  body>*{position:relative;z-index:1;}
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,11,20,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;max-width:1120px;margin:0 auto;}
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand img{width:40px;height:40px;border-radius:10px;}
+  .brand span{font-family:'Baloo Da 2';font-weight:700;font-size:22px;letter-spacing:0.3px;}
+  .brand .ify{color:var(--green-1);}
+  .nav-cta{
+    background:linear-gradient(135deg,var(--gold),var(--gold-2));
+    color:#1a1200;font-weight:700;font-family:'Baloo Da 2';
+    padding:9px 20px;border-radius:100px;font-size:14px;
+    box-shadow:0 4px 18px rgba(255,176,32,0.35);
+  }
+
+  /* HERO */
+  .hero{
+    padding:64px 24px 40px;
+    text-align:center;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(46,155,79,0.25), transparent 55%),
+      radial-gradient(circle at 80% 20%, rgba(255,176,32,0.12), transparent 45%);
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(126,211,33,0.12);
+    border:1px solid rgba(126,211,33,0.35);
+    color:var(--green-1);font-weight:600;font-size:13px;
+    padding:6px 16px;border-radius:100px;margin-bottom:22px;
+  }
+  .eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--green-1);box-shadow:0 0 8px var(--green-1);animation:pulse 1.6s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:0.3;}}
+  .hero h1{
+    font-size:44px;line-height:1.25;font-weight:800;
+    max-width:760px;margin:0 auto 18px;
+  }
+  .hero h1 .grad{
+    background:linear-gradient(100deg,var(--green-1),var(--gold));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .hero p.sub{
+    color:var(--muted);font-size:17px;max-width:560px;margin:0 auto 34px;line-height:1.7;
+  }
+
+  .dl-btn{
+    position:relative;display:inline-flex;align-items:center;gap:14px;
+    background:linear-gradient(135deg,var(--green-1),var(--green-2));
+    color:#08130a;font-family:'Baloo Da 2';font-weight:700;font-size:19px;
+    padding:16px 32px;border-radius:16px;border:none;cursor:pointer;
+    box-shadow:0 10px 30px rgba(46,155,79,0.4);
+    transition:transform .2s ease, box-shadow .2s ease;
+    overflow:hidden;
+  }
+  .dl-btn:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(46,155,79,0.5);}
+  .dl-btn:active{transform:translateY(0);}
+  .dl-btn .ic{width:24px;height:24px;flex-shrink:0;}
+  .dl-btn .txt{display:flex;flex-direction:column;align-items:flex-start;line-height:1.2;}
+  .dl-btn .txt small{font-family:'Hind Siliguri';font-weight:500;font-size:11px;opacity:0.75;}
+  .dl-btn .fill{
+    position:absolute;left:0;top:0;bottom:0;width:0%;
+    background:rgba(255,255,255,0.25);
+    transition:width .25s linear;
+  }
+  .dl-meta{margin-top:14px;color:var(--muted);font-size:13px;}
+  .dl-status{
+    margin-top:12px;font-size:14px;font-weight:600;color:var(--gold);
+    min-height:20px;
+  }
+
+  .trust-row{
+    display:flex;justify-content:center;gap:28px;flex-wrap:wrap;
+    margin-top:44px;padding-top:32px;border-top:1px solid var(--line);
+  }
+  .trust-item{text-align:center;}
+  .trust-item .num{font-family:'Baloo Da 2';font-size:24px;font-weight:700;color:var(--white);}
+  .trust-item .num span{color:var(--gold);}
+  .trust-item .lbl{font-size:12.5px;color:var(--muted);margin-top:2px;}
+
+  /* PHONE MOCK */
+  .hero-phone{margin:52px auto 0;max-width:280px;position:relative;}
+  .phone{
+    background:#0a0e18;border-radius:38px;padding:12px;
+    box-shadow:0 30px 70px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.08);
+  }
+  .phone-screen{
+    background:linear-gradient(180deg,#0d1a14,#0a1220);
+    border-radius:26px;overflow:hidden;aspect-ratio:9/18.5;
+    display:flex;flex-direction:column;padding:18px 16px;
+  }
+  .ps-topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
+  .ps-topbar .avatar{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--green-1),var(--teal));}
+  .ps-topbar .bell{width:20px;height:20px;color:var(--muted);}
+  .balance-card{
+    background:linear-gradient(135deg,var(--green-2),var(--teal));
+    border-radius:16px;padding:16px;margin-bottom:14px;
+  }
+  .balance-card .lbl{font-size:11px;color:rgba(255,255,255,0.75);}
+  .balance-card .amt{font-family:'Baloo Da 2';font-size:26px;font-weight:700;margin-top:2px;}
+  .balance-card .row{display:flex;gap:8px;margin-top:12px;}
+  .balance-card .chip{background:rgba(255,255,255,0.18);font-size:11px;padding:6px 10px;border-radius:8px;flex:1;text-align:center;font-weight:600;}
+  .task-item{
+    display:flex;align-items:center;gap:10px;background:var(--bg-card);
+    border-radius:12px;padding:10px 12px;margin-bottom:8px;border:1px solid var(--line);
+  }
+  .task-item .ic-box{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .task-item .tt{flex:1;}
+  .task-item .tt .t1{font-size:12.5px;font-weight:600;}
+  .task-item .tt .t2{font-size:10.5px;color:var(--muted);}
+  .task-item .plus{font-family:'Baloo Da 2';font-size:12px;color:var(--green-1);font-weight:700;}
+
+  /* SECTION generic */
+  section{padding:88px 24px;}
+  .sec-head{text-align:center;max-width:560px;margin:0 auto 52px;}
+  .sec-eyebrow{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px;display:block;}
+  .sec-head h2{font-size:32px;font-weight:700;line-height:1.3;}
+  .sec-head p{color:var(--muted);margin-top:12px;font-size:15.5px;line-height:1.7;}
+
+  /* FEATURES */
+  .features{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+    max-width:900px;margin:0 auto;
+  }
+  .feat-card{
+    background:var(--bg-alt);border:1px solid var(--line);border-radius:18px;
+    padding:26px 22px;transition:transform .25s ease, border-color .25s ease;
+  }
+  .feat-card:hover{transform:translateY(-4px);border-color:rgba(126,211,33,0.4);}
+  .feat-ic{
+    width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+  }
+  .feat-card h3{font-size:17.5px;font-weight:600;margin-bottom:6px;}
+  .feat-card p{color:var(--muted);font-size:14px;line-height:1.65;}
+
+  /* HOW IT WORKS */
+  .steps{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;max-width:1000px;margin:0 auto;
+  }
+  .step{position:relative;padding:26px 18px;text-align:center;}
+  .step .n{
+    width:44px;height:44px;border-radius:50%;margin:0 auto 16px;
+    background:linear-gradient(135deg,var(--green-1),var(--gold));
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Baloo Da 2';font-weight:700;color:#0a1200;font-size:17px;
+  }
+  .step h3{font-size:15.5px;font-weight:600;margin-bottom:6px;}
+  .step p{color:var(--muted);font-size:13px;line-height:1.6;}
+  .step-line{
+    position:absolute;top:22px;left:calc(50% + 32px);width:calc(100% - 44px);
+    height:2px;background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px);
+  }
+
+  /* SCREENSHOTS */
+  .shots{
+    display:flex;gap:22px;overflow-x:auto;padding:10px 4px 20px;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  }
+  .shots::-webkit-scrollbar{height:6px;}
+  .shots::-webkit-scrollbar-thumb{background:var(--green-2);border-radius:10px;}
+  .shot{flex:0 0 240px;scroll-snap-align:center;}
+  .shot .cap{text-align:center;margin-top:14px;font-size:14px;font-weight:600;color:var(--muted);}
+
+  /* STATS BAND */
+  .stats-band{
+    background:linear-gradient(135deg,var(--bg-alt),var(--bg-card));
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    padding:56px 24px;
+  }
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1000px;margin:0 auto;text-align:center;}
+  .stats-grid .num{font-family:'Baloo Da 2';font-size:30px;font-weight:700;background:linear-gradient(100deg,var(--green-1),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stats-grid .lbl{color:var(--muted);font-size:13px;margin-top:6px;}
+
+  /* TESTIMONIALS */
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1000px;margin:0 auto;}
+  .testi{
+    background:var(--bg-alt);border:1px solid var(--line);border-radius:18px;padding:24px;
+  }
+  .testi .stars{color:var(--gold);font-size:14px;margin-bottom:12px;letter-spacing:2px;}
+  .testi p{font-size:14px;color:#d8dde6;line-height:1.7;margin-bottom:16px;}
+  .testi .who{display:flex;align-items:center;gap:10px;}
+  .testi .who .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--green-1));}
+  .testi .who .nm{font-size:13.5px;font-weight:600;}
+  .testi .who .rl{font-size:11.5px;color:var(--muted);}
+
+  /* FINAL CTA */
+  .final-cta{
+    text-align:center;padding:90px 24px;
+    background:radial-gradient(circle at 50% 30%, rgba(126,211,33,0.15), transparent 60%);
+  }
+  .final-cta h2{font-size:30px;font-weight:700;margin-bottom:14px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .final-cta p{color:var(--muted);margin-bottom:32px;}
+
+  /* FOOTER */
+  footer{border-top:1px solid var(--line);padding:40px 24px 28px;}
+  .foot-wrap{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
+  .foot-brand{display:flex;align-items:center;gap:10px;}
+  .foot-brand img{width:32px;height:32px;border-radius:8px;}
+  .foot-brand span{font-family:'Baloo Da 2';font-weight:700;font-size:17px;}
+  footer .tag{color:var(--muted);font-size:12.5px;margin-top:4px;}
+  .foot-note{color:var(--muted);font-size:12.5px;text-align:right;}
+
+
+  /* ===== PRO POLISH ===== */
+  .hero{position:relative;overflow:hidden;padding-top:56px;}
+  .hero::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:46px 46px;-webkit-mask-image:radial-gradient(ellipse at 50% 25%,#000 25%,transparent 72%);mask-image:radial-gradient(ellipse at 50% 25%,#000 25%,transparent 72%);}
+  .hero .wrap{position:relative;}
+  .hero-logo{width:84px;height:84px;border-radius:22px;margin:0 auto 20px;box-shadow:0 0 0 1px rgba(255,255,255,.1),0 14px 44px rgba(126,211,33,.35);}
+  .hero h1{letter-spacing:-.5px;}
+  .dl-btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 3.4s ease-in-out infinite;}
+  @keyframes shine{0%,60%{left:-60%;}100%{left:130%;}}
+  .trust-row{gap:20px 44px;}
+  .trust-item .num{background:linear-gradient(100deg,var(--green-1),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .hero-phone::before{content:"";position:absolute;inset:-12% -35%;z-index:-1;
+    background:radial-gradient(circle,rgba(126,211,33,.28),rgba(28,127,160,.14) 45%,transparent 70%);filter:blur(24px);}
+  .phone{background:linear-gradient(160deg,#1a2338,#080c15);}
+  .float-chip{position:absolute;z-index:3;display:flex;align-items:center;gap:8px;padding:9px 14px;border-radius:14px;
+    background:rgba(17,26,46,.82);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);
+    font-size:12.5px;font-weight:600;box-shadow:0 12px 30px rgba(0,0,0,.45);animation:floaty 5s ease-in-out infinite;white-space:nowrap;}
+  .float-chip b{color:var(--green-1);font-family:'Baloo Da 2';font-size:15px;}
+  .float-chip .dotg{width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);}
+  .fc1{top:14%;left:-62px;} .fc2{bottom:20%;right:-62px;animation-delay:-2.4s;}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  .sec-head h2{letter-spacing:-.3px;}
+  section{padding:96px 24px;}
+  .feat-card,.testi,.faq-item,.reward{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));}
+  .feat-card:hover{box-shadow:0 18px 44px rgba(0,0,0,.4),0 0 0 1px rgba(126,211,33,.25);}
+  .rewards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:960px;margin:0 auto;}
+  .reward{position:relative;border:1px solid var(--line);border-radius:22px;padding:34px 24px;text-align:center;transition:transform .25s ease,box-shadow .25s ease;}
+  .reward:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.45);}
+  .reward .amt{font-family:'Baloo Da 2';font-weight:800;font-size:44px;line-height:1.1;margin-bottom:10px;
+    background:linear-gradient(100deg,var(--green-1),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .reward h3{font-size:17px;font-weight:600;margin-bottom:8px;}
+  .reward p{color:var(--muted);font-size:14px;line-height:1.65;}
+  .reward.hot{border-color:rgba(255,176,32,.55);background:linear-gradient(180deg,rgba(255,176,32,.12),rgba(126,211,33,.04));box-shadow:0 0 50px rgba(255,176,32,.12);}
+  .reward .tagx{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-2));color:#1a1200;font-size:11.5px;font-weight:700;padding:4px 14px;border-radius:100px;}
+  .faq{max-width:720px;margin:0 auto;display:grid;gap:12px;}
+  .faq-item{border:1px solid var(--line);border-radius:16px;padding:0 22px;}
+  .faq-item summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;font-size:15.5px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary::after{content:"+";color:var(--gold);font-size:22px;font-weight:400;transition:transform .2s;}
+  .faq-item[open] summary::after{transform:rotate(45deg);}
+  .faq-item p{color:var(--muted);font-size:14.5px;line-height:1.75;padding-bottom:18px;}
+  .js .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease;}
+  .js .reveal.in{opacity:1;transform:none;}
+  .sticky-cta{display:none;}
+  @media (max-width:860px){.rewards{grid-template-columns:1fr;max-width:440px;}.reward.hot{margin:8px 0;}}
+  @media (max-width:520px){
+    .fc1{left:-14px;top:8%;} .fc2{right:-14px;}
+    .float-chip{font-size:11.5px;padding:8px 11px;}
+    .sticky-cta{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));
+      background:rgba(7,11,20,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s ease;}
+    .sticky-cta.show{transform:none;}
+    .sticky-cta .dl-btn{width:100%;justify-content:center;padding:12px 20px;font-size:16px;border-radius:14px;}
+    footer{padding-bottom:96px;}
+  }
+  @media (max-width:860px){
+    .features{grid-template-columns:1fr;}
+    .steps{grid-template-columns:repeat(2,1fr);}
+    .step-line{display:none;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .testi-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:520px){
+    .hero h1{font-size:32px;}
+    .hero p.sub{font-size:15.5px;}
+    .dl-btn{padding:14px 24px;font-size:16.5px;}
+    .foot-wrap{flex-direction:column;align-items:flex-start;text-align:left;}
+    .foot-note{text-align:left;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<svg class="trail-svg" viewBox="0 0 100 800" preserveAspectRatio="none">
+  <path d="M10,0 C60,80 -10,160 40,240 C90,320 10,400 60,480 C100,550 20,620 55,700 C80,760 30,780 50,800"
+        stroke="url(#gtrail)" stroke-width="0.4" fill="none" opacity="0.35"/>
+  <defs>
+    <linearGradient id="gtrail" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7ED321"/>
+      <stop offset="50%" stop-color="#FFB020"/>
+      <stop offset="100%" stop-color="#1C7FA0"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header>
+  <nav>
+    <div class="brand"><img src="https://i.ibb.co/0jtN65nH/PLPL-Osman20260426-224127.jpg" alt="Earnify"/><span>Earn<span class="ify">ify</span></span></div>
+    <a href="#download" class="nav-cta">ডাউনলোড করুন</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <img class="hero-logo" src="https://i.ibb.co/0jtN65nH/PLPL-Osman20260426-224127.jpg" alt="Earnify logo"/>
+    <div class="eyebrow"><span class="dot"></span> বিশ্বস্ত আর্নিং অ্যাপ</div>
+    <h1>ঘরে বসে <span class="grad">সহজে ইনকাম</span> করুন, প্রতিদিন</h1>
+    <p class="sub">ছোট ছোট টাস্ক সম্পন্ন করে প্রতিদিন আয় করুন এবং সরাসরি আপনার মোবাইল ব্যাংকিং একাউন্টে উত্তোলন করুন। দ্রুত, নিরাপদ, এবং সম্পূর্ণ বিশ্বাসযোগ্য।</p>
+
+    <div id="download">
+      <button class="dl-btn" onclick="startDownload(this)">
+        <div class="fill" id="fillBar"></div>
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 12l6 6 6-6"/><path d="M5 21h14"/></svg>
+        <div class="txt"><span id="btnLabel">এখনই ডাউনলোড করুন</span><small>Earnify.apk · ১৫ MB</small></div>
+      </button>
+      <div class="dl-status" id="dlStatus"></div>
+      <div class="dl-meta">Android 6.0+ প্রয়োজন &#160;·&#160; APK ফাইল সরাসরি ডাউনলোড হবে</div>
+    </div>
+
+    <div class="trust-row">
+      <div class="trust-item"><div class="num">ফ্রি</div><div class="lbl">রেজিস্ট্রেশন</div></div>
+      <div class="trust-item"><div class="num">৳২</div><div class="lbl">সাইন-আপ বোনাস</div></div>
+      <div class="trust-item"><div class="num">৳৫</div><div class="lbl">প্রতি রেফারে</div></div>
+      <div class="trust-item"><div class="num">১৫ MB</div><div class="lbl">হালকা অ্যাপ</div></div>
+    </div>
+
+    <div class="hero-phone">
+      <div class="float-chip fc1"><span class="dotg"></span>সাইন-আপ বোনাস <b>+৳২</b></div>
+      <div class="float-chip fc2"><span class="dotg"></span>রেফার বোনাস <b>+৳৫</b></div>
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="ps-topbar">
+            <div class="avatar"></div>
+            <svg class="bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          </div>
+          <div class="balance-card">
+            <div class="lbl">মোট ব্যালেন্স</div>
+            <div class="amt">৳ ৩,২৪৫.৫০</div>
+            <div class="row">
+              <div class="chip">উত্তোলন</div>
+              <div class="chip">হিস্টোরি</div>
+            </div>
+          </div>
+          <div class="task-item">
+            <div class="ic-box" style="background:rgba(126,211,33,0.15);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2.4" stroke-linecap="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div class="tt"><div class="t1">দৈনিক চেক-ইন</div><div class="t2">১ মিনিট সময় লাগবে</div></div>
+            <div class="plus">+৳১০</div>
+          </div>
+          <div class="task-item">
+            <div class="ic-box" style="background:rgba(255,176,32,0.15);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            </div>
+            <div class="tt"><div class="t1">ভিডিও দেখুন</div><div class="t2">৩০ সেকেন্ড</div></div>
+            <div class="plus">+৳৫</div>
+          </div>
+          <div class="task-item">
+            <div class="ic-box" style="background:rgba(28,127,160,0.2);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3FB6DB" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="tt"><div class="t1">বন্ধুকে রেফার করুন</div><div class="t2">প্রতি রেফারে বোনাস</div></div>
+            <div class="plus">+৳৫০</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">কেন Earnify</span>
+      <h2>ইনকামের সবচেয়ে সহজ উপায়</h2>
+      <p>শুধু একটা অ্যাপ, যেখানে আয়ের প্রতিটি ধাপ সহজ এবং স্বচ্ছ রাখা হয়েছে।</p>
+    </div>
+    <div class="features">
+      <div class="feat-card">
+        <div class="feat-ic" style="background:rgba(126,211,33,0.15);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+        <h3>দৈনিক টাস্ক থেকে ইনকাম</h3>
+        <p>প্রতিদিন সহজ টাস্ক সম্পন্ন করে নিয়মিত আয় করার সুযোগ থাকছে আপনার জন্য।</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ic" style="background:rgba(255,176,32,0.15);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-6z"/></svg>
+        </div>
+        <h3>ইনস্ট্যান্ট উইথড্র</h3>
+        <p>বিকাশ, নগদ ও রকেটে দ্রুত এবং ঝামেলাহীনভাবে টাকা উত্তোলন করুন।</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ic" style="background:rgba(28,127,160,0.18);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#3FB6DB" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>রেফার করে বোনাস</h3>
+        <p>বন্ধুদের ইনভাইট করুন এবং তাদের প্রতিটি একটিভিটি থেকে অতিরিক্ত বোনাস আয় করুন।</p>
+      </div>
+      <div class="feat-card">
+        <div class="feat-ic" style="background:rgba(126,211,33,0.15);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/></svg>
+        </div>
+        <h3>১০০% নিরাপদ ও বিশ্বস্ত</h3>
+        <p>আপনার তথ্য ও লেনদেন সুরক্ষিত রাখতে আমরা সর্বোচ্চ নিরাপত্তা ব্যবস্থা ব্যবহার করি।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">কার্যপ্রণালী</span>
+      <h2>মাত্র ৪ ধাপে শুরু করুন</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">১</div><h3>অ্যাপ ডাউনলোড</h3><p>নিচের বাটনে ক্লিক করে APK ফাইলটি ডাউনলোড করুন।</p><div class="step-line"></div></div>
+      <div class="step"><div class="n">২</div><h3>একাউন্ট তৈরি</h3><p>মোবাইল নাম্বার দিয়ে দ্রুত রেজিস্ট্রেশন করুন।</p><div class="step-line"></div></div>
+      <div class="step"><div class="n">৩</div><h3>টাস্ক সম্পন্ন করুন</h3><p>সহজ টাস্ক করে আপনার ব্যালেন্স বাড়াতে থাকুন।</p><div class="step-line"></div></div>
+      <div class="step"><div class="n">৪</div><h3>টাকা উত্তোলন</h3><p>বিকাশ/নগদে সরাসরি টাকা তুলে নিন।</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="screenshots">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">অ্যাপের ভেতরে</span>
+      <h2>স্ক্রিনশট দেখুন</h2>
+      <p>অ্যাপের মূল ইন্টারফেস কেমন দেখতে, একনজরে দেখে নিন।</p>
+    </div>
+    <div class="shots">
+      <div class="shot">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ps-topbar"><div class="avatar"></div><svg class="bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg></div>
+            <div class="balance-card"><div class="lbl">হোম ড্যাশবোর্ড</div><div class="amt">৳ ৩,২৪৫.৫০</div>
+              <div class="row"><div class="chip">উত্তোলন</div><div class="chip">হিস্টোরি</div></div>
+            </div>
+            <div class="task-item"><div class="ic-box" style="background:rgba(126,211,33,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2.4"><path d="M9 11l3 3L22 4"/></svg></div><div class="tt"><div class="t1">দৈনিক চেক-ইন</div><div class="t2">সম্পন্ন</div></div><div class="plus">✓</div></div>
+            <div class="task-item"><div class="ic-box" style="background:rgba(255,176,32,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FFB020" stroke-width="2.4"><circle cx="12" cy="12" r="9"/></svg></div><div class="tt"><div class="t1">ভিডিও দেখুন</div><div class="t2">চলমান</div></div><div class="plus">+৳৫</div></div>
+          </div>
+        </div>
+        <div class="cap">হোম স্ক্রিন</div>
+      </div>
+      <div class="shot">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ps-topbar"><div class="avatar"></div><svg class="bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg></div>
+            <div class="balance-card" style="background:linear-gradient(135deg,#1C7FA0,#2E9B4F);"><div class="lbl">উইথড্র</div><div class="amt">৳ ৩,২৪৫.৫০</div>
+              <div class="row"><div class="chip">বিকাশ</div><div class="chip">নগদ</div></div>
+            </div>
+            <div class="task-item"><div class="ic-box" style="background:rgba(28,127,160,0.2);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3FB6DB" stroke-width="2.4"><path d="M20 12H4M4 12l6-6M4 12l6 6"/></svg></div><div class="tt"><div class="t1">গত উত্তোলন</div><div class="t2">৳৫০০ · সফল</div></div><div class="plus">✓</div></div>
+            <div class="task-item"><div class="ic-box" style="background:rgba(28,127,160,0.2);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3FB6DB" stroke-width="2.4"><path d="M20 12H4M4 12l6-6M4 12l6 6"/></svg></div><div class="tt"><div class="t1">গত উত্তোলন</div><div class="t2">৳২০০ · সফল</div></div><div class="plus">✓</div></div>
+          </div>
+        </div>
+        <div class="cap">উইথড্র স্ক্রিন</div>
+      </div>
+      <div class="shot">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="ps-topbar"><div class="avatar"></div><svg class="bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg></div>
+            <div class="balance-card" style="background:linear-gradient(135deg,#FF8A00,#2E9B4F);"><div class="lbl">রেফার ও আর্ন</div><div class="amt">১২ জন</div>
+              <div class="row"><div class="chip">কোড কপি</div><div class="chip">শেয়ার</div></div>
+            </div>
+            <div class="task-item"><div class="ic-box" style="background:rgba(126,211,33,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2.4"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="tt"><div class="t1">রহিম আহমেদ</div><div class="t2">যোগ দিয়েছেন</div></div><div class="plus">+৳৫০</div></div>
+            <div class="task-item"><div class="ic-box" style="background:rgba(126,211,33,0.15);"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7ED321" stroke-width="2.4"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="tt"><div class="t1">করিম মিয়া</div><div class="t2">যোগ দিয়েছেন</div></div><div class="plus">+৳৫০</div></div>
+          </div>
+        </div>
+        <div class="cap">রেফার স্ক্রিন</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="rewards">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">রিওয়ার্ড</span>
+      <h2>যেভাবে আয় করবেন</h2>
+      <p>তিনটি সহজ উপায়ে আপনার ব্যালেন্স বাড়ান।</p>
+    </div>
+    <div class="rewards">
+      <div class="reward"><div class="amt">৳২</div><h3>নতুন একাউন্ট বোনাস</h3><p>অ্যাপে একাউন্ট খুললেই পাবেন সাইন-আপ বোনাস।</p></div>
+      <div class="reward hot"><div class="tagx">জনপ্রিয়</div><div class="amt">৳৫</div><h3>প্রতি রেফারে</h3><p>আপনার রেফার কোডে যতজন জয়েন করবে, প্রতিজনের জন্য বোনাস।</p></div>
+      <div class="reward"><div class="amt">৫০ পয়সা</div><h3>কুইজের উত্তর দিয়ে</h3><p>কয়েকটি কুইজের উত্তর দিলেই পাবেন বোনাস।</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-eyebrow">সাধারণ প্রশ্ন</span>
+      <h2>আপনার জানা দরকার</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item"><summary>APK ফাইল কীভাবে ইনস্টল করব?</summary><p>ডাউনলোড শেষে ফাইলটি ওপেন করুন। ফোন অনুমতি চাইলে "এই উৎস থেকে ইনস্টল করার অনুমতি" (Unknown sources) চালু করে ইনস্টল সম্পন্ন করুন।</p></details>
+      <details class="faq-item"><summary>রেজিস্ট্রেশন কি ফ্রি?</summary><p>হ্যাঁ, একাউন্ট খুলতে কোনো টাকা লাগে না।</p></details>
+      <details class="faq-item"><summary>রেফার কোড কোথায় দেব?</summary><p>রেজিস্ট্রেশনের সময় রেফার কোডের ঘরে কোডটি লিখলেই রেফার বোনাস কাজ করবে।</p></details>
+      <details class="faq-item"><summary>টাকা কীভাবে উত্তোলন করব?</summary><p>অ্যাপের উইথড্র সেকশনে গিয়ে নির্দেশনা অনুযায়ী আপনার পেমেন্ট মাধ্যম সিলেক্ট করে উত্তোলনের অনুরোধ করুন।</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="wrap">
+    <h2>আজই Earnify দিয়ে ইনকাম শুরু করুন</h2>
+    <p>ডাউনলোড করতে মাত্র কয়েক সেকেন্ড লাগবে। নিবন্ধন সম্পূর্ণ বিনামূল্যে।</p>
+    <button class="dl-btn" onclick="startDownload(this)">
+      <div class="fill"></div>
+      <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 12l6 6 6-6"/><path d="M5 21h14"/></svg>
+      <div class="txt"><span>এখনই ডাউনলোড করুন</span><small>Earnify.apk · ১৫ MB</small></div>
+    </button>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-wrap">
+    <div>
+      <div class="foot-brand"><img src="https://i.ibb.co/0jtN65nH/PLPL-Osman20260426-224127.jpg" alt="Earnify"/><span>Earnify</span></div>
+      <div class="tag">Earn More · Achieve More</div>
+    </div>
+    <div class="foot-note">© 2026 Earnify. সর্বস্বত্ব সংরক্ষিত।</div>
+  </div>
+</footer>
+
+<div class="sticky-cta" id="stickyCta">
+  <button class="dl-btn" onclick="startDownload(this)">
+    <div class="fill"></div>
+    <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="M6 12l6 6 6-6"/><path d="M5 21h14"/></svg>
+    <div class="txt"><span>ফ্রি ডাউনলোড করুন</span></div>
+  </button>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+(function(){
+  var els=document.querySelectorAll('.sec-head,.feat-card,.step,.reward,.shot,.faq-item');
+  els.forEach(function(e){e.classList.add('reveal');});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.12});
+    els.forEach(function(e){io.observe(e);});
+  }else{els.forEach(function(e){e.classList.add('in');});}
+  var bar=document.getElementById('stickyCta');
+  window.addEventListener('scroll',function(){bar.classList.toggle('show',window.scrollY>650);},{passive:true});
+})();
+</script>
+<script>
+function startDownload(btn){
+  const fill = btn.querySelector('.fill');
+  const label = btn.querySelector('.txt span');
+  const status = document.getElementById('dlStatus');
+  if(btn.dataset.busy === "1") return;
+  btn.dataset.busy = "1";
+  let pct = 0;
+  const originalLabel = label.textContent;
+  const timer = setInterval(()=>{
+    pct += Math.random()*18 + 8;
+    if(pct >= 100){
+      pct = 100;
+      clearInterval(timer);
+      fill.style.width = "100%";
+      label.textContent = "ডাউনলোড সম্পন্ন";
+      if(status) status.textContent = "APK ফাইলটি সেভ হয়েছে। ইনস্টল করতে ফাইলটি ওপেন করুন।";
+      triggerFileDownload();
+      setTimeout(()=>{
+        fill.style.width = "0%";
+        label.textContent = originalLabel;
+        btn.dataset.busy = "0";
+      }, 2200);
+      return;
+    }
+    fill.style.width = pct + "%";
+    label.textContent = "ডাউনলোড হচ্ছে... " + Math.floor(pct) + "%";
+  }, 220);
+}
+
+function triggerFileDownload(){
+  const a = document.createElement('a');
+  a.href = "https://github.com/Realdev360/Earnify/raw/main/Earnify%20v2.apk";
+  a.download = "Earnify.apk";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+</script>
+
+</body>
+</html>
